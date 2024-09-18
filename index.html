@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent; /* Transparent background */
+            color: #fff;
+            padding: 20px 0;
+            z-index: 100; /* Make sure it's on top of the banner */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin-left: 20px; /* Adds margin between logo and nav items */
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+            padding: 10px 20px;
+            /* border: 2px solid #fff; 
+            border-radius: 30px; */
+        }
+        header nav ul li:hover{
+            margin-left: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff45;
+            /* border: 2px solid #fff; */
+            border-radius: 30px; 
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        /* Add login button */
+        .login-btn {
+            background-color: #ffffffa2;
+            color: #5902d4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            border: 2px solid #5902d4;
+            border-radius: 25px ;
+            font-weight: 500;
+            
+        }
+
+        .login-btn:hover {
+            background-color: #7323f491;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: url('images/banner.jpg') no-repeat center center/cover;
+            height: 700px;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            color: rgb(110, 35, 186);
+            text-align: left;
+            position: relative;
+            
+        }
+        /* Animation for Banner Content */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Banner Content Styling */
+        .banner-content {
+            /* animation: fadeInUp 1s ease-out; */
+        }
+
+        .banner h2 {
+            font-size: 50px;
+            margin-left: 80px;
+            margin-top: 100px;
+            animation: fadeInUp 1.5s ease-out 0.3s forwards; /* Added delay and duration */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.305);
+        }
+
+        .banner p {
+            font-size: 25px;
+            margin-left: 80px;
+            margin-top: 20px;
+            animation: fadeInUp 1.5s ease-out 0.6s forwards; /* Added delay and duration */
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: radial-gradient(circle at top left, #5902d4 30%, #a832d9 70%); /* Circular gradient background */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px; /* Makes the button circular */
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-left: 80px;
+            margin-top: 40px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.563); /* Adds shadow */
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1); /* Slightly enlarges the button */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.33); /* Adds shadow */
+        }
+
+
+        /* About Us Section */
+        /* About Us Section */
+        .about {
+            padding: 50px 0;
+            background: url('images/about.png') no-repeat center center/cover;
+            height: 700px;
+            display: flex; /* Use flexbox for alignment */
+            /* Center vertically */
+            justify-content: flex-end; /* Align content to the right */
+            text-align: left; /* Align text to the right */
+        }
+
+        .about .content {
+            max-width: 50%; /* Adjust as needed */
+            margin-right: 50px; /* Add margin to the right */
+            margin-top: 30px;
+        }
+
+        .about h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #48168d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.336);
+            text-align: justify;
+            margin-top: 30px;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #5902d4;
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        /* Image Carousel */
+        .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.carousel h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    color: #48168d;
+    text-shadow: 2px 2px 4px #3333334e;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-slide {
+    min-width: 25%; /* Adjust this to show 4 images at once */
+    box-sizing: border-box;
+    padding: 0 10px; /* Gap between images */
+}
+
+.carousel-slide img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.354);
+}
+
+/* Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+.temp-btn {
+            display: inline-block;
+            background: radial-gradient(circle at top left, #5902d4 30%, #a832d9 70%); /* Circular gradient background */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px; /* Makes the button circular */
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-left: 620px;
+            margin-top: 40px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.563); /* Adds shadow */
+            font-weight: 500;
+        
+        }
+
+        .temp-btn:hover {
+            transform: scale(1.1); /* Slightly enlarges the button */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.33); /* Adds shadow */
+        }
+
+
+        /* Key Points Section */
+        .key-points {
+            display: flex;
+            padding-top: 30px;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+        }
+
+        .key-points img {
+            width: 50%;
+            
+        }
+
+        .key-points .points {
+            width: 50%;
+            margin-left: 5%;
+        }
+
+        .key-points h3 {
+            font-size: 50px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #48168d;
+            text-shadow: 2px 2px 4px #33333359;
+
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-points ul li {
+            margin: 10px 0;
+            padding: 20px;
+            border: 1px solid #8907bd;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: #7b2cf12e;
+            position: relative;
+            color: #48168d;
+            font-weight: 600;
+            margin-bottom: 30px;
+            box-shadow: 2px 2px 4px rgba(108, 25, 191, 0.609);
+
+        }
+        
+        /* Styling for the dropdown content */
+        .dropdown-content {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #7b2cf12e;
+            border: none;
+            border-radius: 10px;
+            color: #48168d;
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        /* Optional: Styling for a button-like behavior */
+        li:hover {
+            background-color: #e6e6e6;
+        }
+
+        .icon {
+            float: right;
+        }
+
+        /* Card Section */
+        .card-section {
+            display: flex;
+            padding: 40px 0;
+            align-items: center;
+            justify-content: space-between;
+            background: url('images/rev1.jpg')no-repeat center center/cover;
+            width: 100%;
+            height: 750px;
+           
+            
+        }
+        .card-section .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            max-width: 520px;
+            /* margin: 50px auto; */
+            padding: 20px;
+            margin-right: 30px;
+        }
+
+        .card-section .image-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.388);
+        }
+
+        .card-section .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-section .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-section .image-container .bannershort {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: bottom 0.5s ease;
+            
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+
+        .card-section .image-container:hover .bannershort {
+            bottom: 0;
+        }
+        .star-rating {
+            
+            font-size: 14px;
+            color: #FFD700; /* Gold color for stars */
+        }
+        .starrating {
+            
+            font-size: 80px;
+            background: linear-gradient(180deg, #530269, #db7ffa); /* Gradient colors */
+            -webkit-background-clip: text; /* For WebKit browsers */
+            background-clip: text; /* For other browsers */
+            color: transparent; /* Make text color transparent */
+            
+        }
+
+        
+
+        .card {
+            width: 55%;
+            background-color: #00000000;
+            padding: 20px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            border-radius: 10px;
+            margin-left: 60px;
+        }
+
+        .card h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: #530269;
+            margin-top: 40px;
+        }
+
+        .card p {
+            font-size: 48px;
+            color: #5703ab;
+            
+        }
+
+        /* Media Partners Section */
+        .media-partners {
+            display:flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            margin: auto;
+            
+
+        }
+
+        .media h2{
+            font-size: 30px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #48168d;
+            text-shadow: 2px 2px 4px #33333359;
+            font-weight: 400;
+            margin-top: 40px;
+        }
+
+        .media-partners img {
+            width: 150px; /* Adjust size as needed */
+            filter: grayscale(100%) brightness(80%) sepia(100%) hue-rotate(200deg); /* Light purple effect */
+            transition: filter 0.3s ease; /* Smooth transition */
+            margin-bottom: 50px;
+        }
+
+        .media-partners img:hover {
+            filter: none; /* Show original color on hover */
+        }
+        /* Footer */
+        footer {
+            background: url('images/footer.png')no-repeat center center/cover;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            height: 400px;
+        }
+
+        footer p {
+            margin-top: 280px;
+            font-size: 16px;
+        }
+
+        .footer-widget {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            font-family: "Montserrat", sans-serif;
+            margin-top: 50px;
+
+        }
+
+        .footer-widget h2{
+            font-weight: 300;
+        }
+
+    
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background-color: #dddddd39;
+            color:#fff;
+            font-family: "Montserrat", sans-serif;
+            width: 550px;
+            margin: auto;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #a336e2;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100px;
+            margin:auto;
+            font-family: "Montserrat", sans-serif;
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        
+        }
+
+        .contact-form button:hover {
+            background-color: #5b1373;
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            background-color: #b6b6b62d;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            
+        }
+
+        .social-links p{
+            text-align: center;
+            margin:auto;
+        
+            
+        }
+        .social-links img{
+            margin: auto;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: auto; /* Adjust size as needed */
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icons img {
+            width: 100%;
+            height: 100%;
+        }
+        .button1 {
+    background-color: #880986;
+            border: 1px solid #ccc; /* Remove border */
+            color: white; /* White text */
+            padding: 10px 20px; /* Some padding */
+            text-align: center; /* Center the text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make the link behave like a button */
+            font-size: 14px; /* Increase font size */
+            margin: auto; /* Add some margin */
+            cursor: pointer; /* Pointer/hand icon on hover */
+            border-radius: 20px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            font-family: "Quicksand", sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            
+            
+        }
+
+        .button1 a {
+            color: white; /* Ensure the link text is white */
+            text-decoration: none; /* Remove underline from the link */
+        }
+
+        .button1:hover {
+            background-color: rgb(56, 8, 81); /* Darker green on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div style="display: flex; align-items: center;">
+                <img src="images/logo.png" style="width: 200px;">
+                <nav>
+                    <ul>
+                        
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="login.html">Build Your CV</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </header>
+
+    
+<!-- Banner Section -->
+<section class="banner">
+    <div class="banner-content">
+        <h2>Empowering Your Future . . .</h2>
+        <p>Your gateway to innovative solutions and success.</p>
+        <a href="login.html" class="cta-button">Build Yours . . .</a>
+    </div>
+</section>
+
+
+
+    <!-- About Us Section -->
+   <!-- About Us Section -->
+<section class="about" id="about">
+    <div class="content">
+        <img src="images/coma.png" style="width: 100px;">
+        <h2>Crafting Your Success Story</h2>
+        <p>Build a standout CV effortlessly with QuickCV. Our easy-to-use platform offers customizable templates to showcase your skills and experience, helping you land your dream job faster.</p>
+    </div>
+</section>
+
+
+    <!-- Image Carousel Section -->
+    <section class="carousel">
+        <h1>Our Templates</h1><hr><br><br>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="images/cv1.jpg" alt="Image 1"></div>
+                <div class="carousel-slide"><img src="images/cv2.jpg" alt="Image 2"></div>
+                <div class="carousel-slide"><img src="images/cv3.jpg" alt="Image 3"></div>
+                <div class="carousel-slide"><img src="images/cv4.jpg" alt="Image 4"></div>
+                <div class="carousel-slide"><img src="images/cv1.jpg" alt="Image 5"></div>
+                <div class="carousel-slide"><img src="images/cv2.jpg" alt="Image 6"></div>
+                <div class="carousel-slide"><img src="images/cv3.jpg" alt="Image 7"></div>
+                <!-- Cloned slides -->
+                <div class="carousel-slide"><img src="images/cv1.jpg" alt="Image 1"></div>
+                <div class="carousel-slide"><img src="images/cv2.jpg" alt="Image 2"></div>
+                <div class="carousel-slide"><img src="images/cv3.jpg" alt="Image 3"></div>
+                <div class="carousel-slide"><img src="images/cv4.jpg" alt="Image 4"></div>
+                <div class="carousel-slide"><img src="images/cv1.jpg" alt="Image 5"></div>
+                <div class="carousel-slide"><img src="images/cv2.jpg" alt="Image 6"></div>
+                <div class="carousel-slide"><img src="images/cv3.jpg" alt="Image 7"></div>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+           
+        </div><br>
+       
+        <br>
+        <hr>
+        
+    </section>
+    <a href="login.html" class="temp-btn">GENERATE YOUR CV</a>
+
+    <!-- Key Points Section -->
+    <section class="key-points">
+        <img src="images/previw.png" alt="Key Points Image">
+        <div class="points">
+            
+            <h3>We're here to help . .</h3>
+            <ul>
+                <li onclick="toggleDropdown(this)">
+                    Pre-written content <span class="icon">+</span>
+                    <div class="dropdown-content">
+                        <p>Select from thousands of pre-written phrases for hundreds of jobs and careers. Just click and insert them directly into your CV!</p>
+                    </div>
+                </li>
+                <li onclick="toggleDropdown(this)">
+                    CV and cover letter in one place <span class="icon">+</span>
+                    <div class="dropdown-content">
+                        <p>Create a brand for yourself with a matching CV and cover letter. You can count on expert suggestions and professional cover letter templates to complement your CV..</p>
+                    </div>
+                </li>
+                <li onclick="toggleDropdown(this)">
+                    Expert tips & guidance<span class="icon">+</span>
+                    <div class="dropdown-content">
+                        <p>Detailed CV-building tips and advice every step of the way. CV pro or beginner - we've got you covered.</p>
+                    </div>
+                </li>
+                <li onclick="toggleDropdown(this)">
+                    CV writing services<span class="icon">+</span>
+                    <div class="dropdown-content">
+                        <p>From a quick review to a design refresh and more, our CV writing services experts are here for you.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Card Section -->
+    <section class="card-section">
+        
+        <div class="card">
+            <div class="starrating">★★★★☆</div>
+            <h1>Top Choice of Professionals</h1>
+                <p>Exceptional platform for career advancement.</p>
+                
+        </div>
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="images/man1.jpg" alt="Image 1">
+                
+                <div class="bannershort">
+                    <p>John Doe</p>
+                    <div class="star-rating">★★★★★</div><br>
+                    <p>Great experience with this service!</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="images/woman1.jpg" alt="Image 2">
+                <div class="bannershort"><p>Jane Smith</p> 
+                    <div class="star-rating">★★★★☆</div><br>
+                    <p>Love the simplicity and speed!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/man2.jpg" alt="Image 3">
+                <div class="bannershort"><p>Chris Brown</p>
+                    <div class="star-rating">★★★★★</div><br>
+                <p>This really helped me stand out!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/woman2.jpg" alt="Image 4">
+                <div class="bannershort"><p>Lisa Ray</p>
+                    <div class="star-rating">★★★★☆</div><br><p>Professional and easy to use!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/man3.jpg" alt="Image 5">
+                <div class="bannershort"><p>Paul Walker</p>
+                    <div class="star-rating">★★★★★</div><br><p> Amazing tool for creating resumes!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/woman3.jpg" alt="Image 6">
+                <div class="bannershort"><p>Diana Prince</p>
+                    <div class="star-rating">★★★★☆</div><br>
+                    <p>Highly recommend for job seekers!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/man4.jpg" alt="Image 7">
+                <div class="bannershort"><p>Bruce Wayne</p>
+                    <div class="star-rating">★★★★★</div><br><p>The best service I’ve used!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/man5.jpg" alt="Image 8">
+                <div class="bannershort"><p>Clark Kent</p>
+                    <div class="star-rating">★★★★★</div><br><p>Made my resume shine!</p></div>
+            </div>
+            <div class="image-container">
+                <img src="images/man6.jpg" alt="Image 9">
+                <div class="bannershort"><p>Peter Parker</p>
+                    <div class="star-rating">★★★★☆</div><br><p>Simple, fast, and effective!</p></div>
+            </div>
+        </div>
+    
+    </section>
+
+    <!-- Media Partners Section -->
+    <section class="media">
+        <h2>Our customers were hired by</h2>
+        <div class="media-partners">
+            
+            <img src="images/11.png" alt="Partner Logo 1">
+            <img src="images/22.png" alt="Partner Logo 2">
+            <img src="images/33.png" alt="Partner Logo 3">
+            <img src="images/44.png" alt="Partner Logo 4">
+            <img src="images/55.png" alt="Partner Logo 4">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-widget" id="contact" >
+            <div>
+                <h2>Contact Us</h2>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            <div>
+                <h2>Get in Touch</h2>
+                <div class="social-links">
+                    <img src="images/call.png" style="max-width: 40px;">
+                    <p>+3238393923</p>
+                    <img src="images/mail.png" style="max-width: 40px;">   
+                    <p>quickcv@cvgen.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/yourprofile" target="_blank" title="Facebook">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/yourprofile" target="_blank" title="Instagram">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.youtube.com/yourprofile" target="_blank" title="YouTube" >
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
+const visibleSlides = 4; // Number of visible slides at once
+let index = 0;
+
+// Initialize the carousel
+function initializeCarousel() {
+    document.querySelector('.carousel-track').style.transform = `translateX(0)`;
+}
+
+// Show the slide based on index
+function showSlide(n) {
+    if (n >= totalSlides - visibleSlides) index = 0;
+    else if (n < 0) index = totalSlides - visibleSlides;
+    else index = n;
+
+    document.querySelector('.carousel-track').style.transform = `translateX(-${index * 100 / visibleSlides}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// Automatically move to the next slide
+function nextSlide() {
+    showSlide(index + 1);
+}
+
+// Handle carousel pause on hover
+function handleMouseOver() {
+    clearInterval(autoSlide);
+}
+
+function handleMouseOut() {
+    autoSlide = setInterval(nextSlide, 3000);
+}
+
+let autoSlide = setInterval(nextSlide, 3000); // Change slides every 3 seconds
+
+document.querySelector('.carousel-container').addEventListener('mouseover', handleMouseOver);
+document.querySelector('.carousel-container').addEventListener('mouseout', handleMouseOut);
+
+// Initialize the carousel
+initializeCarousel();
+showSlide(index);
+
+// Function to toggle the dropdown
+function toggleDropdown(element) {
+            const dropdownContent = element.querySelector('.dropdown-content');
+            const icon = element.querySelector('.icon');
+
+            // Toggle visibility of the dropdown content
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                icon.innerHTML = "+";
+            } else {
+                dropdownContent.style.display = "block";
+                icon.innerHTML = "-";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

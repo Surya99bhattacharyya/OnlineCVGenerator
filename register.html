@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Playwrite+DE+Grund:wght@100..400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Quicksand", sans-serif;
+            background: url('images/bglog.jpg') no-repeat center center/cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .form-signin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: auto;
+            padding: 20px;
+            background: rgba(110, 110, 110, 0.409);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form-signin-heading {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #ffffff63;
+            border: 1px solid #676767;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #000000;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff00;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: "Quicksand", sans-serif;
+           
+        }
+
+        .btn:hover {
+            background-color: #6017a0;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.773);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.195);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #3c186bf4;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .modal-header, .modal-footer {
+            padding: 10px 20px;
+            background: #261241f4;
+        }
+
+        .modal-footer {
+            padding-top: 20px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .modal-body {
+            padding: 20px;
+            color: #fff;
+            font-size: 20pt;
+        }
+
+        .modal-title {
+            font-size: 20px;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .btn-modal-primary {
+            display: inline-block;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff00;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: "Quicksand", sans-serif;
+            text-decoration:none;
+        }
+
+        .btn-modal-primary:hover {
+            background-color: #6c1899;
+        }
+    </style>
+</head>
+<body>
+    <form action="register.php" method="post" class="form-signin" enctype="multipart/form-data">
+        <h2 class="form-signin-heading" style="font-weight: 400;">REGISTER</h2>
+        <label for="username" class="sr-only"></label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        
+        <label for="email" class="sr-only"></label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+        
+        <label for="password" class="sr-only"></label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        
+        <label for="profile_picture" class="sr-only"></label>
+        <input type="file" id="profile_picture" name="profile_picture" class="form-control" accept="image/*" required>
+        
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()" style="color: #ffffff; padding-left: 450px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="successModalLabel"><img src="images/t.png" style="width: 80px;"></h5>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                Registration successful! 
+                You can now log in.
+            </div>
+            <div class="modal-footer">
+                <a href="login.html" class="btn btn-modal-primary" style="width: fit-content;">Go to Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var success = urlParams.get('success');
+            if (success) {
+                document.getElementById('successModal').style.display = 'flex';
+            }
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

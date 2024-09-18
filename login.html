@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter the Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Playwrite+DE+Grund:wght@100..400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: "Quicksand", sans-serif;
+            background: url('images/bglog.jpg')no-repeat center center/cover;
+            
+        }
+
+
+        .form-signin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 450px;
+            padding: 20px;
+            background: rgba(110, 110, 110, 0.409);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form-signin-heading {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #fff;
+        }
+        .form-signin p {
+            color:white;
+        }
+
+        .form-signin p a{
+            color:#86baff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .form-signin p a{
+            color:#4265e1;
+            text-decoration: none;
+        }
+        .form-signin p a:hover{
+            color:#cc52ee;
+            text-decoration: none;
+        }
+
+        .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #ffffff63;
+    border: 1px solid #676767;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #000000;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+
+        .btn-primary {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff00;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #6017a0;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.773);
+
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.195);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            
+        }
+
+        .modal-content {
+            background: #3c186bf4;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+
+        }
+
+        .modal-header, .modal-footer {
+            padding: 10px 20px;
+            background: #261241f4;
+        }
+
+        /* .modal-header {
+            
+        } */
+
+        .modal-footer {
+            padding-top: 20px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-title {
+            
+            font-size: 20px;
+
+        }
+        .modal-body{
+            color: #fff;
+            font-size: 20pt;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .btn-secondary, .btn-modal-primary {
+            display: inline-block;
+            
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff00;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        /* .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        } */
+
+        /* .btn-secondary:hover {
+            background-color: #5a6268;
+        } */
+
+        .btn-modal-primary {
+            background-color: #2b0d4500;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.773);
+            text-decoration: none;
+        }
+
+        .btn-modal-primary:hover {
+            background-color: #6c1899;
+        }
+    </style>
+</head>
+<body>
+   
+
+    <form action="login.php" method="post" class="form-signin">
+        <img src="images/loglogo.png" style="width: 150px;">
+        <h2 class="form-signin-heading" style="font-weight: 400;">SIGN IN HERE</h2>
+        
+        <label for="username" class="sr-only" style="font-weight: 400;"></label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only" style="font-weight: 400;"></label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn-primary" type="submit" style="width: fit-content;">Sign in</button>
+        <p>New User? <a href="register.html">Register Here<a></p>
+    </form>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #ffffff; padding-left: 450px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="errorModalLabel"><img src="images/x.png" style="width: 80px;"></h5>
+                
+            </div>
+            <div class="modal-body" id="modalMessage">
+                <!-- Error message will be injected here by JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <a href="register.html" class="btn-modal-primary" id="registerLink">Register</a>
+                
+                <!-- <button type="button" class="btn-secondary" data-dismiss="modal">Close</button> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var error = urlParams.get('error');
+            if (error) {
+                var errorMessage = '';
+                if (error === 'invalid_user') {
+                    errorMessage = 'No user found with the entered username.';
+                } else if (error === 'invalid_password') {
+                    errorMessage = 'The password you entered is incorrect.';
+                }
+                document.getElementById('modalMessage').textContent = errorMessage;
+                document.getElementById('errorModal').style.display = 'flex';
+            }
+
+            document.querySelectorAll('[data-dismiss="modal"]').forEach(function(element) {
+                element.addEventListener('click', function() {
+                    document.getElementById('errorModal').style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
